@@ -9,7 +9,7 @@ Inspired by [this tutorial](https://dev.to/brunolemos/tutorial-100-code-sharing-
 - Create monorepo `yarn init -w`
 - Add typescript and react-native to workspace
 - Create packages web|mobile|electron
-- Generate react-native app inside packages `npx react-native init mobile --template react-native-template-typescript`
+- Generate react-native app `npx react-native init mobile --template react-native-template-typescript`
 - Modify all imports throughout the mobile folder
     - android/app/src/debug/MainApplication.java
     - android/build.gradle
@@ -20,4 +20,5 @@ Inspired by [this tutorial](https://dev.to/brunolemos/tutorial-100-code-sharing-
     - ios/mobile/AppDelegate.m
 - Add entryFile and root to android/app/build.gradle
 - Add projectRoot to metro.config.js
-- Create web app (create-react-app) in ./packages/web
+- Create web app `npx create-react-app web --template typescript`
+- Add react-app-rewired to allow importing outside src folder
