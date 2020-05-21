@@ -1,0 +1,26 @@
+{
+  "name": "universal-js-client-starter",
+  "version": "0.0.1",
+  "description": "Monorepo for Universal JS Client (Web, Electron, React Native) with code reuse",
+  "main": "index.js",
+  "author": "ivan calderon",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "web": "yarn workspace web start",
+    "android": "yarn workspace mobile android",
+    "ios": "yarn workspace mobile ios",
+    "compile": "tsc -b --incremental"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "react-native": "^0.62.2"
+  }
+}
