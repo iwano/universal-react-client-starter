@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "start": "concurrently \"npm run compile -- -w\" \"react-native start\"",
+    "prestart": "npm run compile",
+    "compile": "tsc -b --incremental",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "compile": "tsc -b --incremental"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "react": "16.11.0",
+    "components": "0.0.1",
     "react-native": "0.62.2"
   },
   "devDependencies": {
@@ -19,7 +20,6 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^1.0.0",
     "@types/jest": "^24.0.24",
-    "@types/react-native": "^0.62.0",
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
@@ -28,8 +28,7 @@
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "react-test-renderer": "16.11.0",
-    "prettier": "^2.0.4",
-    "typescript": "^3.8.3"
+    "prettier": "^2.0.4"
   },
   "jest": {
     "preset": "react-native",
