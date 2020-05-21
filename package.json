@@ -1,5 +1,5 @@
 {
-  "name": "universal-js-client-starter",
+  "name": "universal-react-client-starter",
   "version": "0.0.1",
   "description": "Monorepo for Universal JS Client (Web, Electron, React Native) with code reuse",
   "main": "index.js",
