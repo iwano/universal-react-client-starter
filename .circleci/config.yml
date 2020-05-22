@@ -1,0 +1,72 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+
+parameters:
+  web:
+    type: boolean
+    default: false
+  desktop:
+    type: boolean
+    default: false
+  mobile:
+    type: boolean
+    default: false
+  components:
+    type: boolean
+    default: false
+
+workflows:
+  version: 2
+
+  lint:
+    jobs:
+      - lint
+
+  test:
+    jobs:
+      - test
+
+  # web:
+  #   when: << pipeline.parameters.web >>
+  #   jobs:
+  #     - build:
+  #       name: web-build
+  #       package_name: web
+  #     - test
+  #     - deploy
+  #         requires:
+  #           - build
+  #           - test
+
+jobs:
+  lint:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn lint
+
+  test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn test
+
+  # build:
+  #   parameters:
+  #     package_name:
+  #       type: string
+  #       description: name of the service
+  #   docker:      
+  #     - image: circleci/node
+  #     # Set to the root location of the service
+  #     working_directory: ~/project/packages/<< parameters.package_name >>
+  #   steps:
+  #     - checkout:
+  #         path: ~/project
