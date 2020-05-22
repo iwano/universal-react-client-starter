@@ -2,24 +2,23 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/react-dom": "^16.9.0",
+    "components": "0.0.1",
     "react-dom": "^16.13.1",
     "react-native-web": "^0.12.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
     "compile": "tsc -b",
-    "start": "concurrently \"npm run compile -- -w --incremental\" \"npm run _start\"",
-    "_start": "react-app-rewired start",
-    "prebuild": "npm run compile",
-    "build": "react-scripts build",
+    "start": "yarn compile && react-app-rewired start",
+    "build": "yarn compile && react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prestart": "npm run compile"
+    "lint": "tslint -p ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-dom": "^16.9.0",
     "react-app-rewired": "^2.1.6"
   }
 }

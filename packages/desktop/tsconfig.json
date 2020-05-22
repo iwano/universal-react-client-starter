@@ -1,10 +1,12 @@
-{
+  {
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
+      "noEmit": false,
+      "outDir": "dist",
+      "rootDir": "src",
       "typeRoots": [
         "@types",
+        "../../@types",
         "../../node_modules/@types"
       ]
     },
@@ -16,4 +18,5 @@
         "path": "../components"
       }
     ]
-}
+  }
+  

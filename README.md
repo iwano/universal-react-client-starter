@@ -1,14 +1,13 @@
-# Universal JS Client Starter
+# Universal React Client Starter
 
 ## Monorepo starter for fully functioning Web, Electron and React Native clients with code reuse
 
-Inspired by [this tutorial](https://dev.to/brunolemos/tutorial-100-code-sharing-between-ios-android--web-using-react-native-web-andmonorepo-4pej) and [react-native-web-monorepo](https://github.com/brunolemos/react-native-web-monorepo) and [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
+Heavily nspired by [this tutorial](https://dev.to/brunolemos/tutorial-100-code-sharing-between-ios-android--web-using-react-native-web-andmonorepo-4pej) and [react-native-web-monorepo](https://github.com/brunolemos/react-native-web-monorepo) and [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
 
 ### Building from scratch
 
 - Create monorepo `yarn init -w`
-- Add typescript and react-native to workspace
-- Create packages web|mobile|electron
+- Create packages web|mobile|desktop
 - Generate react-native app `npx react-native init mobile --template react-native-template-typescript`
 - Modify all imports throughout the mobile folder
     - android/app/src/debug/MainApplication.java

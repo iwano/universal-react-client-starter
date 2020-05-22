@@ -1,7 +1,7 @@
 {
   "name": "universal-react-client-starter",
   "version": "0.0.1",
-  "description": "Monorepo for Universal JS Client (Web, Electron, React Native) with code reuse",
+  "description": "Monorepo for Universal React Client (Web, Electron, React Native) with code reuse",
   "main": "index.js",
   "author": "ivan calderon",
   "license": "MIT",
@@ -13,9 +13,11 @@
   },
   "scripts": {
     "web": "yarn workspace web start",
+    "desktop": "cross-env BROWSER=none concurrently \"yarn web\" \"yarn workspace desktop webpack:dev -w\" \"wait-on http://localhost:3000 && yarn workspace desktop start\"",
     "android": "yarn workspace mobile android",
     "ios": "yarn workspace mobile ios",
-    "compile": "tsc -b --incremental"
+    "lint": "yarn workspaces run lint",
+    "test": "yarn workspaces run test"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
@@ -23,7 +25,9 @@
     "@types/react": "^16.9.35",
     "@types/react-native": "^0.62.10",
     "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
     "react-native": "^0.62.2",
+    "shx": "^0.3.2",
     "typescript": "^3.9.3"
   },
   "dependencies": {
