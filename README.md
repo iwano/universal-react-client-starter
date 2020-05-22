@@ -4,6 +4,44 @@
 
 Heavily nspired by [this tutorial](https://dev.to/brunolemos/tutorial-100-code-sharing-between-ios-android--web-using-react-native-web-andmonorepo-4pej) and [react-native-web-monorepo](https://github.com/brunolemos/react-native-web-monorepo) and [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
 
+
+### Dependencies
+* react
+* create-react-app
+* react-native
+* react-native-web
+* electron
+* electron-builder
+* typescript
+
+### Installation
+
+```
+git clone
+cd universal-react-client-starter
+rm .git
+git init
+```
+
+### Run web app
+
+```
+yarn web
+```
+
+### Run electron app
+
+```
+yarn desktop
+```
+
+### Run mobile apps
+
+```
+yarn android
+yarn ios
+```
+
 ### Building from scratch
 
 - Create monorepo `yarn init -w`
@@ -21,3 +59,5 @@ Heavily nspired by [this tutorial](https://dev.to/brunolemos/tutorial-100-code-s
 - Add projectRoot to metro.config.js
 - Create web app `npx create-react-app web --template typescript`
 - Add react-app-rewired to allow importing outside src folder
+- Create electron app (main only)
+- Create script to run web app + electron main
