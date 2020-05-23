@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "eslint.alwaysShowStatus": true,
+  "files.autoSave": "onFocusChange",
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

@@ -1,5 +1,7 @@
 Features 🎉
-* Add awesome feature
+
+- Add awesome feature
 
 Bugfixes 🐞
-* Fix that annoying bug
+
+- Fix that annoying bug
