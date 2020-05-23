@@ -21,6 +21,7 @@
     "publish": "yarn webpack:prod && yarn build:web && yarn build:web:post && electron-builder --publish always",
     "prebuild": "yarn clean",
     "prepublish": "yarn clean",
+    "test": "jest --passWithNoTests",
     "lint": "tslint -p .",
     "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
     "clean": "shx rm -rf dist"
