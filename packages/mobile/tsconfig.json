@@ -7,7 +7,7 @@
   "include": ["index.js", "src"],
   "references": [
     {
-      "path": "../components"
+      "path": "../core"
     }
   ]
 }

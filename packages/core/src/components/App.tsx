@@ -34,7 +34,7 @@ export function App() {
               <Text style={styles.sectionDescription}>
                 Edit{' '}
                 <Text style={styles.highlight}>
-                  packages/components/App.tsx
+                  packages/core/src/components/App.tsx
                 </Text>{' '}
                 to change this screen and then come back to see your edits (in
                 the phone, browser or electron).
