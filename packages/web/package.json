@@ -18,10 +18,7 @@
     "build": "yarn compile && react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tslint -p ."
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "browserslist": {
     "production": [

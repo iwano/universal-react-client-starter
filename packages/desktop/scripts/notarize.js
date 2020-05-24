@@ -16,8 +16,8 @@ exports.default = async function notarizing(context) {
 
   if (!(process.env.APPLE_ID && process.env.APPLE_ID_PASSWORD)) {
     console.warn(
-      'Skipping macOS app notarization.' +
-        ' Missing one or more environment vars (APPLE_ID, APPLE_ID_PASSWORD).',
+      'Skipping macOS app notarization.',
+      ' Missing one or more environment vars (APPLE_ID, APPLE_ID_PASSWORD).',
     )
     return
   }
