@@ -9,9 +9,8 @@ import {
 } from 'react-native'
 
 import { AppHeader } from './AppHeader'
-
 // declare const global: {HermesInternal: null | {}};
-declare var global: any
+declare let global: any
 
 export function App() {
   return (
