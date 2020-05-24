@@ -13,7 +13,7 @@
   },
   "scripts": {
     "web": "yarn workspace web start",
-    "desktop": "cross-env BROWSER=none concurrently \"yarn web\" \"yarn workspace desktop webpack:dev -w\" \"wait-on http://localhost:3000 && yarn workspace desktop start\"",
+    "desktop": "cross-env BROWSER=none IS_ELECTRON=true concurrently \"yarn web\" \"yarn workspace desktop webpack:dev -w\" \"wait-on http://localhost:3000 && yarn workspace desktop start\"",
     "android": "yarn workspace mobile android",
     "ios": "yarn workspace mobile ios",
     "lint": "yarn workspaces run lint",
