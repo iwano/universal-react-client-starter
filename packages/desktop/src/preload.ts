@@ -1,4 +1,4 @@
 import { ipcRenderer } from 'electron'
 
-//@ts-ignore
+// @ts-ignore
 window.ipc = ipcRenderer
