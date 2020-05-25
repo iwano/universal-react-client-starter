@@ -4,6 +4,7 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
+  Button,
   Text,
   View,
 } from 'react-native'
@@ -31,6 +32,26 @@ export function App() {
           )}
           <View style={styles.body}>
             <View style={styles.bodyInner}>
+              <View style={styles.sectionContainer}>
+                <Text style={styles.sectionDescription}>
+										Current platform is:{' '}
+                  <Text style={styles.platform}>
+                    {getPlatform()}
+                  </Text>
+                </Text>
+                <View style={styles.button}>
+                  <Button
+                    onPress={() => {
+                      if (__IS_ELECTRON__) {// This block will go away when building the web app
+                        window.ipc.send('show-alert', 'This alert will look different in each platform')
+                      }else {
+                        alert('This alert will look different in each platform')
+                      }
+                    }}
+                    title="Press Me"
+                  />
+                </View>
+              </View>
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>
                 Code sharing using Monorepo
@@ -62,18 +83,6 @@ export function App() {
                 <Text style={styles.sectionDescription}>
                 Run <Text style={styles.highlight}>yarn ios</Text> to open
                 this app on ios.
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>
-									Get the current platform with the getPlatform helper
-                </Text>
-                <Text style={styles.sectionDescription}>
-										Current platform is:{' '}
-
-                  <Text style={styles.platform}>
-                    {getPlatform()}
-                  </Text>
                 </Text>
               </View>
               <View style={styles.sectionContainer}>
@@ -134,6 +143,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     color: colors.dark,
+  },
+  button: {
+    marginTop: 10,
+    width: 100
   },
   highlight: {
     fontWeight: '700',

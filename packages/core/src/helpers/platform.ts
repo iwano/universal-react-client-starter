@@ -1,6 +1,11 @@
 import { Platform } from 'react-native'
 
-declare var __IS_ELECTRON__: boolean
+export enum PlatformType {
+	WEB='web',
+	DESKTOP='desktop',
+	ANDROID='android',
+	IOS='ios'
+}
 
 const getPlatform = (): string => {
   const os = Platform.OS
@@ -8,7 +13,23 @@ const getPlatform = (): string => {
     return os
   }
 
-  return __IS_ELECTRON__ ? 'electron' : os
+  return __IS_ELECTRON__ ? 'desktop' : os
 }
 
-export { getPlatform }
+const isWeb = (): boolean => {
+  return Platform.OS === PlatformType.WEB
+}
+
+const isDesktop = (): boolean => {
+  return getPlatform() === PlatformType.DESKTOP
+}
+
+const isAndroid = (): boolean => {
+  return Platform.OS === PlatformType.ANDROID
+}
+
+const isIOS = (): boolean => {
+  return Platform.OS === PlatformType.IOS
+}
+
+export { getPlatform, isWeb, isDesktop, isAndroid, isIOS }
