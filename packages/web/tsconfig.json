@@ -3,12 +3,12 @@
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "typeRoots": ["@types", "../../node_modules/@types"]
+    "typeRoots": ["../../@types", "../../node_modules/@types"]
   },
   "include": ["src"],
   "references": [
     {
-      "path": "../components"
+      "path": "../core"
     }
   ]
 }

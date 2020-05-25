@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "nodemon --watch dist --watch resources --exec \"electron .\"",
-    "build": "yarn webpack:prod && yarn build:web && yarn build:web:post && electron-builder -mwl",
+    "build": "cross-env IS_ELECTRON=true  yarn webpack:prod && yarn build:web && yarn build:web:post && electron-builder -mwl",
     "build:web": "pushd \"../web\" && yarn build && popd",
     "build:web:post": "shx cp -Rf ../web/build dist/web",
     "webpack:dev": "webpack --config config/webpack.config.dev.js",

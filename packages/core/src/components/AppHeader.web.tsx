@@ -1,11 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import colors from '../styles/colors'
 
 export function AppHeader() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
-        Welcome to React Native Web + Monorepo yerrrr
+        This header only shows in web/desktop
       </Text>
     </View>
   )
@@ -17,7 +18,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     height: 200,
-    backgroundColor: '#f3f3f3',
+    backgroundColor: colors.lighter,
+    paddingHorizontal: 24,
   },
   text: {
     fontSize: 36,

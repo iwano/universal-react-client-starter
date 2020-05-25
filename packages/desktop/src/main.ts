@@ -10,7 +10,7 @@
  */
 import path from 'path'
 import url from 'url'
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain, dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
 import log from 'electron-log'
 import MenuBuilder from './menu'
@@ -19,11 +19,11 @@ const DEV_URL = 'http://localhost:3000'
 const PRELOAD_PATH = path.join(__dirname, 'preload.js')
 const getUrl = (templateName: string = 'index'): string => {
   if (process.env.NODE_ENV === 'development') {
-    return `${DEV_URL}/${templateName}/html`
+    return `${DEV_URL}/${templateName}.html`
   }
 
   return url.format({
-    pathname: path.join(__dirname, 'web', 'index.html'),
+    pathname: path.join(__dirname, 'web', `${templateName}.html`),
     protocol: 'file:',
     slashes: true,
   })
@@ -127,4 +127,8 @@ app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
+})
+
+ipcMain.on('show-alert', (event: Event, message: string) => {
+  dialog.showMessageBoxSync({ type: 'info', message })
 })

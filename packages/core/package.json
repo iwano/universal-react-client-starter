@@ -1,0 +1,14 @@
+{
+  "name": "core",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "babel-loader": "^8.1.0"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  }
+}
