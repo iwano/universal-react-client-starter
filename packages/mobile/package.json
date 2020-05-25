@@ -37,6 +37,7 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"]
   }
 }

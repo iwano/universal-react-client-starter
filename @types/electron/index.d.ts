@@ -3,3 +3,5 @@
 interface Window {
 	ipc: Electron.IpcRenderer
 }
+ 
+declare let __IS_ELECTRON__: boolean
