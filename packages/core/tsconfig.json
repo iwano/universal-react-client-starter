@@ -3,14 +3,14 @@
 	"compilerOptions": {
 		"composite": true,
 		"declaration": true,
-		"emitDeclarationOnly": true,
 		"isolatedModules": false,
 		"outDir": "dist",
-		"rootDir": "src",
+		"rootDirs": ["src", "stories"],
+		"jsx": "react",
 		"typeRoots": [
 			"../../@types",
 			"../../node_modules/@types"
-		]
-	}
+		],
+	},
 }
   
