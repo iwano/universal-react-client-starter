@@ -34,17 +34,19 @@ export function App() {
             <View style={styles.bodyInner}>
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionDescription}>
-										Current platform is:{' '}
-                  <Text style={styles.platform}>
-                    {getPlatform()}
-                  </Text>
+                  Current platform is:{' '}
+                  <Text style={styles.platform}>{getPlatform()}</Text>
                 </Text>
                 <View style={styles.button}>
                   <Button
                     onPress={() => {
-                      if (__IS_ELECTRON__) {// This block will go away when building the web app
-                        window.ipc.send('show-alert', 'This alert will look different in each platform')
-                      }else {
+                      if (__IS_ELECTRON__) {
+                        // This block will go away when building the web app
+                        window.ipc.send(
+                          'show-alert',
+                          'This alert will look different in each platform',
+                        )
+                      } else {
                         alert('This alert will look different in each platform')
                       }
                     }}
@@ -54,53 +56,55 @@ export function App() {
               </View>
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>
-                Code sharing using Monorepo
+                  Code sharing using Monorepo
                 </Text>
                 <Text style={styles.sectionDescription}>
-                Edit files in{' '}
-                  <Text style={styles.highlight}>
-                  packages/core/src
-                  </Text>{' '}
-                and see it update in real time.
+                  Edit files in{' '}
+                  <Text style={styles.highlight}>packages/core/src</Text> and
+                  see it update in real time.
                 </Text>
               </View>
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>
-								Running all different clients
+                  Running all different clients
                 </Text>
                 <Text style={styles.sectionDescription}>
-                Run <Text style={styles.highlight}>yarn web</Text> to open this
-                app in the browser.
+                  Run <Text style={styles.highlight}>yarn web</Text> to open
+                  this app in the browser.
                 </Text>
                 <Text style={styles.sectionDescription}>
-                Run <Text style={styles.highlight}>yarn electron</Text> to open
-                this app with electron.
+                  Run <Text style={styles.highlight}>yarn electron</Text> to
+                  open this app with electron.
                 </Text>
                 <Text style={styles.sectionDescription}>
-                Run <Text style={styles.highlight}>yarn android</Text> to open
-                this app on android.
+                  Run <Text style={styles.highlight}>yarn android</Text> to open
+                  this app on android.
                 </Text>
                 <Text style={styles.sectionDescription}>
-                Run <Text style={styles.highlight}>yarn ios</Text> to open
-                this app on ios.
+                  Run <Text style={styles.highlight}>yarn ios</Text> to open
+                  this app on ios.
                 </Text>
               </View>
               <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>
-								Code reuse
-                </Text>
+                <Text style={styles.sectionTitle}>Code reuse</Text>
                 <Text style={styles.sectionDescription}>
-                All apps will share the same code unless you create
-                platform-specific files using the appropriate extension (
+                  All apps will share the same code unless you create
+                  platform-specific files using the appropriate extension (
                   <Text style={styles.highlight}>.web</Text>,{' '}
                   <Text style={styles.highlight}>.android</Text>,{' '}
                   <Text style={styles.highlight}>.ios</Text>,{' '}
-                  <Text style={styles.highlight}>.native</Text>, etc).
+                  <Text style={styles.highlight}>.native</Text>).
+                </Text>
+                <Text style={styles.sectionDescription}>
+								There is no extension for <Text style={styles.highlight}>Desktop</Text> (web and desktop share the same code), if you want to add desktop specific code you can use the <Text style={styles.highlight}>isDesktop</Text> helper or the <Text style={styles.highlight}>__IS_ELECTRON__</Text> global constant.
+                </Text>
+                <Text style={styles.sectionDescription}>
+									Any conditional block that uses the constant will be removed from the web app build after minification.
                 </Text>
               </View>
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>Learn More</Text>
-                <LearnMoreLinks/>
+                <LearnMoreLinks />
               </View>
             </View>
           </View>
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    alignItems: "center",
+    alignItems: 'center',
     backgroundColor: colors.white,
   },
   bodyInner: {
@@ -146,7 +150,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 10,
-    width: 100
+    width: 100,
   },
   highlight: {
     fontWeight: '700',
@@ -169,6 +173,6 @@ const styles = StyleSheet.create({
   footer: {
     color: colors.dark,
     fontSize: 18,
-    marginTop: 30
-  }
+    marginTop: 30,
+  },
 })

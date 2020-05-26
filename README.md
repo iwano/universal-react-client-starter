@@ -42,6 +42,13 @@ yarn android
 yarn ios
 ```
 
+### Code Reuse
+All apps will share the same code unless you create platform-specific files using the appropriate extension (.web, .android, .ios, .native).
+
+There is no extension for **desktop** (web and desktop share the same code), if you want to add desktop specific code you can use the **isDesktop** helper or the **__IS_ELECTRON__** global constant.
+
+Any conditional block that uses the constant will be removed from the web app build after minification.
+
 ### Building from scratch
 
 - Create monorepo `yarn init -w`
