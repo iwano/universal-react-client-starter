@@ -13,6 +13,11 @@ workflows:
     jobs:
       - test
 
+  build:
+    jobs:
+      - build_web
+      - build_desktop
+
 jobs:
   lint:
     executor:
@@ -29,3 +34,27 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn test
+
+  build_web:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run:
+        name: Build Web
+        command: |
+          yarn install
+          cd packages/web
+          yarn build
+
+  build_desktop:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run:
+        name: Build Desktop
+        command: |
+          yarn install
+          cd packages/desktop
+          yarn build
