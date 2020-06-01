@@ -44,8 +44,7 @@ jobs:
           name: Build Web
           command: |
             yarn install
-            cd packages/web
-            yarn build
+            yarn workspace web build
 
   build_desktop:
     executor:
@@ -56,5 +55,4 @@ jobs:
           name: Build Desktop
           command: |
             yarn install
-            cd packages/desktop
-            yarn build
+            yarn workspace desktop build
