@@ -53,6 +53,7 @@ jobs:
       - checkout
       - run:
           name: Build Desktop
+          working_directory: ~/project/packages/desktop
           command: |
             yarn install
-            yarn workspace desktop build
+            yarn build

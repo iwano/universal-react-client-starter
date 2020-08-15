@@ -14,7 +14,12 @@
     "react": "^16.13.1"
   },
   "scripts": {
-    "start": "react-app-rewired start"
+    "compile": "tsc -b",
+    "start": "yarn compile && react-app-rewired start",
+    "build": "yarn compile && react-app-rewired build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "browserslist": {
     "production": [
