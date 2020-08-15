@@ -10,15 +10,11 @@
     "core": "0.0.1",
     "react-dom": "^16.13.1",
     "react-native-web": "^0.12.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react": "^16.13.1"
   },
   "scripts": {
-    "compile": "tsc -b",
-    "start": "yarn compile && react-app-rewired start",
-    "build": "yarn compile && react-app-rewired build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "start": "react-app-rewired start"
   },
   "browserslist": {
     "production": [
@@ -33,7 +29,15 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.4",
+    "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.0",
-    "react-app-rewired": "^2.1.6"
+    "react-app-rewired": "^2.1.6",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "jest": "^24.9.0",
+    "shx": "^0.3.2",
+    "typescript": "^3.9.3"
   }
 }
