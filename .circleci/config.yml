@@ -47,8 +47,8 @@ jobs:
             yarn workspace web build
 
   build_desktop:
-    macos:
-      xcode: "11.3.1"
+    executor:
+      name: node/default
     steps:
       - checkout
       - run:
