@@ -54,6 +54,7 @@ jobs:
       - run:
           name: Build Desktop
           working_directory: ~/project/packages/desktop
+          shell: /bin/bash
           command: |
             yarn install
             yarn build
