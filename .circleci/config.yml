@@ -1,31 +1,72 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
-
-workflows:
-  version: 2
-
-  lint:
-    jobs:
-      - lint
-
-  test:
-    jobs:
-      - test
 
 jobs:
-  lint:
+  analyse_js:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: .
+      - rn/yarn_install
+      - run:
+          command: |
+            cd packages/mobile
+            yarn lint
+          name: Run ESLint
+      - run:
+          command: |
+            cd packages/mobile
+            yarn test
+          name: Test
+  checkout_code:
     executor:
-      name: node/default
+      name: rn/linux_js
+      node_version: '10'
     steps:
       - checkout
-      - run: yarn install
-      - run: yarn lint
+      - persist_to_workspace:
+          paths: .
+          root: .
+orbs:
+  rn: react-native-community/react-native@4.4.2
 
+workflows:
   test:
-    executor:
-      name: node/default
-    steps:
-      - checkout
-      - run: yarn install
-      - run: yarn test
+    jobs:
+      - checkout_code
+      - analyse_js:
+          requires:
+            - checkout_code
+      - rn/android_build:
+          build_type: debug
+          name: build_android_debug
+          project_path: packages/mobile/android
+          requires:
+            - analyse_js
+      - rn/android_build:
+          build_type: release
+          name: build_android_release
+          project_path: packages/mobile/android
+          requires:
+            - analyse_js
+      - rn/android_test:
+          detox_configuration: android.emu.release
+          requires:
+            - build_android_release
+      - rn/ios_build:
+          build_configuration: Release
+          device: iPhone X
+          name: build_ios_release
+          node_version: '10'
+          project_path: packages/mobile/ios/mobile.xcodeproj
+          requires:
+            - analyse_js
+          scheme: Example
+      - rn/ios_build_and_test:
+          build_configuration: Release
+          detox_configuration: ios.sim.release
+          device: iPhone X
+          node_version: '10'
+          project_path: packages/mobile/ios/mobile.xcodeproj
+          requires:
+            - analyse_js
+          scheme: Example
